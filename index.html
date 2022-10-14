@@ -14,6 +14,25 @@
     <title>Kind of a Pokédex</title>
   </head>
   <body>
+    <nav class="navbar bg-light">
+      <div class="container-fluid">
+        <form class="d-flex" role="search">
+          <input
+            id="search-bar"
+            class="form-control me-2"
+            type="search"
+            placeholder="Search"
+            aria-label="Search"
+          />
+          <input
+            id="search-button"
+            onclick="displayPokemons()"
+            type="button"
+            value="Search"
+          />
+        </form>
+      </div>
+    </nav>
     <div class="container align-items-center text-center">
       <h1>Kind of a Pokédex</h1>
       <div id="pokedex" class="row">

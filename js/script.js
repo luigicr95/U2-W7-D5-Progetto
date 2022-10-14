@@ -17,10 +17,17 @@ async function displayPokemons() {
     //console.log(kantoPokemonURL);
   }
 
+  document.querySelector("#pokedex").innerHTML = "";
+
   for (i = 0; i < kantoPokemonArray.length; i++) {
+    let searchQuery = document.getElementById("search-bar").value;
     let eachPokemon = kantoPokemonArray[i];
-    if (eachPokemon.types[1] !== undefined) {
-      document.querySelector("#pokedex").innerHTML += `<div class="card col-4">
+
+    if (eachPokemon.name.includes(searchQuery)) {
+      if (eachPokemon.types[1] !== undefined) {
+        document.querySelector(
+          "#pokedex"
+        ).innerHTML += `<div class="card col-4">
           <img src="${eachPokemon.sprites.front_default}" class="card-img-top" alt="..." />
           <div class="card-body">
             <h5 class="card-title">${eachPokemon.name}</h5>
@@ -31,8 +38,10 @@ async function displayPokemons() {
             <li class="list-group-item">${eachPokemon.types[1].type.name}</li>
           </ul>
         </div>`;
-    } else {
-      document.querySelector("#pokedex").innerHTML += `<div class="card col-4">
+      } else {
+        document.querySelector(
+          "#pokedex"
+        ).innerHTML += `<div class="card col-4">
           <img src="${eachPokemon.sprites.front_default}" class="card-img-top" alt="..." />
           <div class="card-body">
             <h5 class="card-title">${eachPokemon.name}</h5>
@@ -43,6 +52,7 @@ async function displayPokemons() {
             
           </ul>
         </div>`;
+      }
     }
   }
 }
